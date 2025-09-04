@@ -3,713 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andrea Bonadonna | Senior Cloud Solutions Architect</title>
+    <title>ANDREA BONADONNA - Senior Cloud Architect</title>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
         body {
-            background-color: #f5f5f5;
-            color: #333;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
+            margin: 0;
             padding: 20px;
+            color: #333;
+            background-color: #f4f4f4;
         }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 2rem 0;
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
             text-align: center;
-            margin-bottom: 2rem;
-            border-radius: 0 0 10px 10px;
-            box-shadow: var(--shadow);
         }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+        h2 {
+            font-size: 1.8em;
         }
-        
-        header .title {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        
-        header .contact-info {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
+        .header h2 {
+            font-size: 1.5em;
+            color: #7f8c8d;
+            border: none;
         }
-        
-        header .social-links {
-            margin-top: 1rem;
+        .contact-info {
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px;
         }
-        
-        header .social-links a {
-            color: white;
+        .contact-info span {
             margin: 0 10px;
-            text-decoration: none;
-            transition: color 0.3s;
         }
-        
-        header .social-links a:hover {
-            color: var(--secondary-color);
-        }
-        
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--light-color);
-            margin-bottom: 1rem;
-            transition: transform 0.3s;
-        }
-        
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
-        
         .section {
-            background-color: white;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
+            margin-bottom: 20px;
         }
-        
-        .section:hover {
-            transform: translateY(-5px);
-        }
-        
-        .section h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-color);
-        }
-        
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-        
-        .skill {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            cursor: default;
-        }
-        
-        .skill:hover {
-            background-color: var(--accent-color);
-            transform: scale(1.05);
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 10px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: var(--secondary-color);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -30px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            border: 2px solid var(--secondary-color);
-        }
-        
-        .timeline-date {
+        .section-title {
             font-weight: bold;
-            color: var(--accent-color);
+            color: #34495e;
+            margin-bottom: 10px;
         }
-        
-        .timeline-title {
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 5px;
+        }
+        .job-title {
+            font-size: 1.2em;
             font-weight: bold;
-            margin: 0.5rem 0;
-            color: var(--primary-color);
+            color: #2c3e50;
         }
-        
-        .timeline-company {
+        .company-name {
             font-style: italic;
-            margin-bottom: 0.5rem;
+            color: #555;
         }
-        
-        .contact-list {
-            list-style: none;
+        .job-details {
+            margin-left: 20px;
+            margin-bottom: 15px;
         }
-        
-        .contact-list li {
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
+        .project-list li {
+            margin-bottom: 10px;
         }
-        
-        .contact-list i {
-            margin-right: 10px;
-            color: var(--secondary-color);
-            width: 20px;
+        .certification-list li {
+            margin-bottom: 5px;
+        }
+        .technical-expertise .category {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .footer {
             text-align: center;
+            font-style: italic;
+            margin-top: 30px;
+            color: #7f8c8d;
         }
-        
-        .contact-link {
-            color: var(--primary-color);
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .flex-item {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .contact-info a {
+            color: #3498db;
             text-decoration: none;
-            transition: color 0.3s;
         }
-        
-        .contact-link:hover {
-            color: var(--accent-color);
+        .contact-info a:hover {
             text-decoration: underline;
         }
-        
-        .certifications-list {
-            list-style-type: none;
-        }
-        
-        .certifications-list li {
-            margin-bottom: 1rem;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .certifications-list li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-size: 1.2rem;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .project-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1rem;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        
-        .project-card:hover {
-            border-color: var(--secondary-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
-        }
-        
-        .project-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-card .project-client {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 10px 10px 0 0;
-            margin-top: 2rem;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.8);
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 2rem;
-            border-radius: 8px;
-            max-width: 800px;
-            position: relative;
-            animation: modalopen 0.5s;
-        }
-        
-        @keyframes modalopen {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 1.5rem;
-            color: #aaa;
-            cursor: pointer;
-        }
-        
-        .close-btn:hover {
-            color: var(--accent-color);
-        }
-        
-        .tab-container {
-            display: flex;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .tab {
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
-        }
-        
-        .tab.active {
-            border-bottom: 3px solid var(--secondary-color);
-            color: var(--secondary-color);
-            font-weight: bold;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ccc;
+            margin: 20px 0;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <img src="https://via.placeholder.com/150" alt="Andrea Bonadonna" class="profile-img" id="profileImg">
-            <h1>Andrea Bonadonna</h1>
-            <div class="title">Senior Cloud Solutions Architect</div>
-            <div class="contact-info">Anzio (RM), Italy | +39 3357415299 | bonadonna.andrea@gmail.com</div>
-            <div class="social-links">
-                <a href="http://www.linkedin.com/in/andrea-bonadonna-907a211" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://bonand.github.io" target="_blank"><i class="fas fa-globe"></i> Personal Page</a>
-                <a href="mailto:bonadonna.andrea@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-            </div>
+        <header class="header">
+            <h1>ANDREA BONADONNA</h1>
+            <h2>Senior Cloud Architect & Business Architecture Manager</h2>
         </header>
 
-        <section class="section" id="about">
-            <h2>Professional Summary</h2>
-            <p>Results-driven and certified Cloud Solutions Architect with over 20 years of experience designing, implementing, and managing enterprise-grade, multi-cloud architectures. Proven leadership in cloud migration, infrastructure automation, Kubernetes orchestration, and cloud security frameworks. Adept at aligning IT strategies with business objectives to drive digital transformation, cost efficiency, and operational scalability. Skilled in OCI, AWS, Azure, and GCP, with a strong foundation in DevOps, Infrastructure as Code (IaC), disaster recovery (DR), and cloud-native application development.</p>
-        </section>
+        <div class="contact-info">
+            <span>📍 Via Colle Aventino 3, 00042 Anzio (RM), Italy</span>
+            <span>📱 +39 335 741 5299</span>
+            <span>📧 bonadonna.andrea@gmail.com</span>
+            <span>🔗 <a href="https://www.linkedin.com/in/andrea-bonadonna-907a211/">LinkedIn</a> | <a href="https://github.com/bonand">GitHub</a></span>
+        </div>
 
-        <section class="section" id="skills">
-            <h2>Core Competencies</h2>
-            <div class="skills-container">
-                <div class="skill">Cloud Architecture Design (OCI, AWS, Azure, GCP)</div>
-                <div class="skill">Multi-Cloud Strategy & Governance</div>
-                <div class="skill">Kubernetes (OKE, EKS, AKS) Administration</div>
-                <div class="skill">Infrastructure as Code (Terraform, Ansible)</div>
-                <div class="skill">CI/CD Pipeline Development</div>
-                <div class="skill">Identity and Access Management</div>
-                <div class="skill">Zero Trust Security & CIS Compliance</div>
-                <div class="skill">Cloud Cost Optimization & FinOps</div>
-                <div class="skill">Disaster Recovery & High Availability</div>
-                <div class="skill">Cloud-Native Application Modernization</div>
-                <div class="skill">Team Leadership & Agile Methodologies</div>
-            </div>
-        </section>
+        <hr>
 
-        <section class="section" id="experience">
-            <h2>Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">March 2024 -- Present</div>
-                    <div class="timeline-title">Business Architecture Manager</div>
-                    <div class="timeline-company">Accenture</div>
-                    <ul>
-                        <li>Spearheaded the architecture of OCI-based cloud infrastructure supporting Italy's national digital initiatives, resulting in improved scalability and compliance.</li>
-                        <li>Streamlined infrastructure deployment using Terraform, reducing provisioning cycles by 70% and increasing reliability.</li>
-                        <li>Designed resilient, multi-region disaster recovery strategies to ensure 99.99% service availability for critical services.</li>
-                        <li>Advised senior leadership on cloud adoption strategies, translating complex technical concepts into actionable business decisions.</li>
-                        <li>Strengthened cybersecurity posture by implementing CIS-compliant governance frameworks and zero trust models.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">April 2022 -- March 2024</div>
-                    <div class="timeline-title">Technology Architect</div>
-                    <div class="timeline-company">Oracle</div>
-                    <ul>
-                        <li>Orchestrated large-scale migrations to OCI and hybrid cloud platforms, reducing legacy system dependencies by 60%.</li>
-                        <li>Engineered production-grade Kubernetes (OKE) environments, achieving 99.99% uptime and enhanced deployment agility.</li>
-                        <li>Built reusable Terraform and Ansible modules, boosting infrastructure-as-code adoption across multiple client accounts.</li>
-                        <li>Led the integration of multi-cloud services (OCI, AWS, Azure), enabling seamless workload distribution and regulatory compliance.</li>
-                        <li>Collaborated with development and operations teams to embed security and cost control into cloud architecture blueprints.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">February 2002 -- April 2022</div>
-                    <div class="timeline-title">Principal Technical Architect</div>
-                    <div class="timeline-company">SAS Institute</div>
-                    <ul>
-                        <li>Directed the modernization of analytics platforms, transitioning on-prem environments to cloud-native, containerized solutions.</li>
-                        <li>Oversaw mission-critical migrations for major clients, managing projects valued over €5M while ensuring on-time delivery.</li>
-                        <li>Implemented robust identity and access management systems (LDAP, SSO, Kerberos), enhancing operational security.</li>
-                        <li>Reduced deployment times by 75% through automation of infrastructure and software lifecycle processes.</li>
-                        <li>Acted as a cross-functional liaison between engineering, product, and business teams to align architecture with customer needs.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="technical-skills">
-            <h2>Technical Skills</h2>
-            <div class="tab-container">
-                <div class="tab active" data-tab="cloud">Cloud Platforms</div>
-                <div class="tab" data-tab="iac">IaC & Automation</div>
-                <div class="tab" data-tab="container">Containerization</div>
-                <div class="tab" data-tab="cicd">CI/CD Tools</div>
-                <div class="tab" data-tab="languages">Languages</div>
-                <div class="tab" data-tab="security">Security</div>
-                <div class="tab" data-tab="analytics">Analytics & Monitoring</div>
-            </div>
-            
-            <div class="tab-content active" id="cloud-content">
-                <div class="skills-container">
-                    <div class="skill">OCI</div>
-                    <div class="skill">AWS</div>
-                    <div class="skill">Azure</div>
-                    <div class="skill">GCP</div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="iac-content">
-                <div class="skills-container">
-                    <div class="skill">Terraform</div>
-                    <div class="skill">Ansible</div>
-                    <div class="skill">CloudFormation</div>
-                    <div class="skill">Shell Scripting</div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="container-content">
-                <div class="skills-container">
-                    <div class="skill">Docker</div>
-                    <div class="skill">Kubernetes (OKE, EKS, AKS, GKE)</div>
-                    <div class="skill">Helm</div>
-                    <div class="skill">Kustomize</div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="cicd-content">
-                <div class="skills-container">
-                    <div class="skill">Jenkins</div>
-                    <div class="skill">GitLab CI</div>
-                    <div class="skill">GitHub Actions</div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="languages-content">
-                <div class="skills-container">
-                    <div class="skill">Java</div>
-                    <div class="skill">Python</div>
-                    <div class="skill">GoLang</div>
-                    <div class="skill">SQL</div>
-                    <div class="skill">Bash</div>
-                    <div class="skill">SAS</div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="security-content">
-                <div class="skills-container">
-                    <div class="skill">IAM</div>
-                    <div class="skill">SSO</div>
-                    <div class="skill">LDAP</div>
-                    <div class="skill">SAML</div>
-                    <div class="skill">OAuth2</div>
-                    <div class="skill">Kerberos</div>
-                    <div class="skill">CIS Benchmarks</div>
-                </div>
-            </div>
-            
-            <div class="tab-content" id="analytics-content">
-                <div class="skills-container">
-                    <div class="skill">Prometheus</div>
-                    <div class="skill">Grafana</div>
-                    <div class="skill">ELK Stack</div>
-                    <div class="skill">OCI Logging</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="certifications">
-            <h2>Certifications</h2>
-            <ul class="certifications-list">
-                <li><strong>Google Certified Professional Cloud Architect</strong> -- Google | Jul 2025</li>
-                <li><strong>OCI Multicloud Architect Professional</strong> -- Oracle | Dec 2024</li>
-                <li><strong>OCI Generative AI Professional</strong> -- Oracle | Jan 2025</li>
-                <li><strong>OCI Architect Professional</strong> -- Oracle | Feb 2024</li>
-                <li><strong>OCI Foundation Associate</strong> -- Oracle | Oct 2022</li>
-                <li><strong>SAS Certified Platform Administrator for SAS 9</strong> -- SAS | Jun 2014</li>
+        <section class="section">
+            <h2>🎯 EXECUTIVE SUMMARY</h2>
+            <p><strong>Cloud Architecture Leader</strong> with <strong>20+ years</strong> of enterprise IT experience and <strong>8+ years</strong> specializing in cloud-native solutions. Currently driving digital transformation as Business Architecture Manager at Accenture, with a proven track record in designing and implementing multi-cloud architectures for Fortune 500 companies and government entities.</p>
+            <h3>Key Achievements:</h3>
+            <ul>
+                <li>Led <strong>10+ large-scale cloud migration projects</strong> for enterprises including UniCredit, ENEL, Poste Italiane</li>
+                <li>Designed <strong>Italy's Government Private Cloud</strong> infrastructure (PSN) serving multiple public administration entities</li>
+                <li><strong>5x Oracle Cloud certified</strong> including AI and Multicloud Architect Professional</li>
+                <li>Expertise spanning <strong>AWS, Azure, GCP, OCI</strong> with deep Kubernetes and Infrastructure-as-Code proficiency</li>
             </ul>
         </section>
 
-        <section class="section" id="projects">
-            <h2>Key Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card" data-project="alloy">
-                    <h3>OCI Alloy Region Implementation</h3>
-                    <div class="project-client">PSN | 2025</div>
-                    <p>Architected national OCI Alloy regions including networking, DR, and external service integration...</p>
+        <hr>
+
+        <section class="section">
+            <h2>🏢 PROFESSIONAL EXPERIENCE</h2>
+
+            <div class="job-details">
+                <p><span class="job-title">Business Architecture Manager</span> | <span class="company-name">Accenture</span></p>
+                <p>March 2024 - Present | Oracle Cloud Infrastructure Division</p>
+                <ul>
+                    <li><strong>Strategic Leadership:</strong> Define enterprise cloud strategies for Accenture and Fortune 500 clients, integrating business processes with cutting-edge cloud technologies</li>
+                    <li><strong>Solution Architecture:</strong> Design and implement cloud-native architectures with focus on scalability, security, and cost optimization</li>
+                    <li><strong>Team Leadership:</strong> Guide cross-functional teams through complex digital transformation initiatives</li>
+                    <li><strong>Client Engagement:</strong> Act as trusted advisor for C-level executives on cloud adoption strategies</li>
+                </ul>
+                <p><strong>Key Projects:</strong></p>
+                <ul class="project-list">
+                    <li><strong>Italy Government PSN Private Cloud</strong> (2024-2025): Architected Landing Zone for multiple PA entities with full DR capabilities</li>
+                    <li><strong>TIM/Noovle Cloud Landing Zone</strong> (2024): Designed OCI Landing Zone with advanced security controls and cost allocation strategies</li>
+                </ul>
+            </div>
+
+            <div class="job-details">
+                <p><span class="job-title">Technology Architect</span> | <span class="company-name">Oracle Corporation</span></p>
+                <p>April 2022 - March 2024</p>
+                <ul>
+                    <li><strong>Cloud Architecture:</strong> Designed hybrid and multi-cloud solutions for enterprise customers across EMEA region</li>
+                    <li><strong>Migration Leadership:</strong> Led cloud migration strategies with comprehensive assessment, planning, and execution</li>
+                    <li><strong>Kubernetes Expertise:</strong> Administered and optimized large-scale Kubernetes deployments for mission-critical workloads</li>
+                    <li><strong>Customer Enablement:</strong> Conducted pre-sales activities and technical workshops for enterprise prospects</li>
+                    <li><strong>Innovation:</strong> Managed internal cloud tenant for R&D, PoCs, and emerging technology evaluation</li>
+                </ul>
+                <p><strong>Impact:</strong> Successfully migrated 50+ enterprise workloads to cloud with average 40% cost reduction and improved performance</p>
+            </div>
+
+            <div class="job-details">
+                <p><span class="job-title">Principal Technical Architect</span> | <span class="company-name">SAS Institute Italy</span></p>
+                <p>January 2016 - April 2022 | Pre-Sales Architecture & Cloud Practice</p>
+                <ul>
+                    <li><strong>Solution Design:</strong> Architected SAS analytics platforms for cloud-native and hybrid deployments</li>
+                    <li><strong>Security Leadership:</strong> Implemented enterprise-grade security, SSO, and authentication frameworks</li>
+                    <li><strong>Integration Expertise:</strong> Designed complex integration solutions for Fortune 500 customer environments</li>
+                    <li><strong>Pre-Sales Excellence:</strong> Generated $10M+ in new business through technical solution demonstrations</li>
+                </ul>
+                <p><strong>Notable Projects:</strong></p>
+                <ul class="project-list">
+                    <li><strong>ENEL Enterprise Analytics Platform</strong> (2019): Containerized legacy analytics platform using Kubernetes on AWS</li>
+                    <li><strong>Poste Italiane Infrastructure Consolidation</strong> (2018): Unified SAS environments with automated deployment</li>
+                    <li><strong>ENEL Greenpower Edge Analytics</strong> (2018): Implemented real-time predictive analytics on edge devices</li>
+                </ul>
+            </div>
+
+            <div class="job-details">
+                <p><span class="job-title">Principal Technical Architect</span> | <span class="company-name">SAS Institute Italy</span></p>
+                <p>January 2013 - January 2016 | Big Data & Cloud Architecture Team</p>
+                <ul>
+                    <li>Designed technical and application architectures for enterprise SAS deployments</li>
+                    <li>Developed integration frameworks for seamless SAS product adoption</li>
+                    <li>Implemented comprehensive security and authentication strategies</li>
+                </ul>
+            </div>
+
+            <div class="job-details">
+                <p><span class="job-title">Software Architect</span> | <span class="company-name">SAS Institute Italy</span></p>
+                <p>February 2002 - January 2013</p>
+                <ul>
+                    <li>Hardware sizing and physical architecture design for SAS software environments</li>
+                    <li>Custom integration component development and performance optimization</li>
+                    <li>Technical leadership for software installation, configuration, and tuning</li>
+                </ul>
+            </div>
+
+            <div class="job-details">
+                <p><strong>Early Career Experience</strong></p>
+                <ul>
+                    <li><strong>Senior Developer | Intersistemi Italia</strong> (Nov 2001 - Jan 2002)</li>
+                    <li><strong>Senior Developer | 3F Data System</strong> (Nov 1999 - Nov 2001)</li>
+                    <li><strong>Web Developer | Gedy s.r.l.</strong> (Nov 1992 - Nov 1999)</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section">
+            <h2>🏆 CERTIFICATIONS & CREDENTIALS</h2>
+            <ul class="certification-list">
+                <li><strong>2025:</strong></li>
+                <ul>
+                    <li><strong>Google Cloud Professional Architect</strong> (July 2025) ✨ <em>Recent Achievement</em></li>
+                    <li><strong>Oracle Cloud AI Certified Professional</strong> (January 2025) ✨ <em>Recent Achievement</em></li>
+                </ul>
+                <li><strong>2024:</strong></li>
+                <ul>
+                    <li><strong>Oracle Cloud Multicloud Architect Professional</strong> (December 2024)</li>
+                    <li><strong>Oracle Cloud Infrastructure 2023 Architect Professional</strong> (February 2024)</li>
+                </ul>
+                <li><strong>2022:</strong></li>
+                <ul>
+                    <li><strong>Oracle Cloud Infrastructure Foundation Associate</strong> (October 2022)</li>
+                </ul>
+                <li><strong>Additional:</strong></li>
+                <ul>
+                    <li><strong>SAS Certified Platform Administrator</strong> (June 2014)</li>
+                </ul>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section class="section">
+            <h2>🛠️ CORE TECHNICAL EXPERTISE</h2>
+            <div class="technical-expertise">
+                <p><span class="category">Cloud Platforms & Services:</span> Oracle Cloud Infrastructure (OCI), AWS, Microsoft Azure, Google Cloud Platform, Kubernetes, OpenShift, Docker, Helm, Kustomize, Terraform, Ansible, CloudFormation, Vagrant</p>
+                <p><span class="category">DevOps & CI/CD:</span> Jenkins, GitLab CI/CD, ArgoCD, Bamboo, Prometheus, Grafana, ELK Stack (Elasticsearch, Logstash, Kibana), Git, GitLab, BitBucket</p>
+                <p><span class="category">Programming & Development:</span> Java, Python, Go, C#, JavaScript, PHP, SQL, Spring, Struts, J2EE, HTML5, CSS3, AJAX, jQuery, JSON/XML</p>
+                <p><span class="category">Database & Big Data:</span> Oracle (including Exadata), PostgreSQL, MySQL, SQL Server, DB2, Hadoop ecosystem (Cloudera, Hortonworks), Apache Spark, SAS Platform, In-memory analytics engines</p>
+                <p><span class="category">Security & Networking:</span> LDAP, Active Directory, SAML, Kerberos, OAuth, TCP/IP, VPN, Load Balancing, DNS architecture, Zero Trust architecture, IAM, Network security policies</p>
+                <p><span class="category">Operating Systems:</span> Linux (Red Hat Enterprise, SUSE, Ubuntu), Unix (Solaris, AIX, HP-UX, Tru64), Windows Server</p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section">
+            <h2>🚀 KEY PROJECTS & ACHIEVEMENTS</h2>
+
+            <div class="job-details">
+                <p><span class="job-title">Italy Government Private Cloud Implementation</span><br><em>Polo Strategico Nazionale (2024-2025)</em></p>
+                <ul>
+                    <li><strong>Scope:</strong> Architected national-level private cloud infrastructure for Italian public administration</li>
+                    <li><strong>Achievement:</strong> Designed secure, compliant Landing Zone serving multiple government entities</li>
+                    <li><strong>Impact:</strong> Enhanced digital services for millions of Italian citizens</li>
+                </ul>
+            </div>
+
+            <div class="job-details">
+                <p><span class="job-title">Cloud Anti-Money Laundering Solution</span><br><em>UniCredit Group (2023)</em></p>
+                <ul>
+                    <li><strong>Scope:</strong> Implemented cloud-native AML platform on Oracle Cloud Infrastructure</li>
+                    <li><strong>Achievement:</strong> Designed comprehensive DR solution with multi-cloud connectivity</li>
+                    <li><strong>Impact:</strong> Enhanced fraud detection capabilities with improved performance and compliance</li>
+                </ul>
+            </div>
+
+            <div class="job-details">
+                <p><span class="job-title">Enterprise Cloud Migrations</span><br><em>Multiple Fortune 500 Clients (2020-2022)</em></p>
+                <ul>
+                    <li><strong>Scope:</strong> Led "Lift & Shift" migrations for Ferrovie dello Stato, Poste Italiane, ANIA</li>
+                    <li><strong>Achievement:</strong> Successfully migrated 100+ workloads with zero downtime</li>
+                    <li><strong>Impact:</strong> Average 35% cost reduction and improved operational efficiency</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="section">
+            <h2>🎓 EDUCATION & PROFESSIONAL DEVELOPMENT</h2>
+            <div class="flex-container">
+                <div class="flex-item">
+                    <h3>Education:</h3>
+                    <ul>
+                        <li><strong>Diploma in Information Technology</strong> - State Industrial Technical Institute "Luigi Trafelli", Nettuno (1989)</li>
+                    </ul>
                 </div>
-                <div class="project-card" data-project="foundation">
-                    <h3>Cloud-Native Foundation</h3>
-                    <div class="project-client">Noovle | 2024</div>
-                    <p>Designed OCI Landing Zone, implemented Exadata provisioning, and automated cost tracking...</p>
-                </div>
-                <div class="project-card" data-project="migration">
-                    <h3>OCI Landing Zone Migration</h3>
-                    <div class="project-client">Reale Mutua | 2023</div>
-                    <p>Developed and executed a Lift & Shift strategy aligned with CIS benchmarks...</p>
-                </div>
-                <div class="project-card" data-project="aml">
-                    <h3>AML Cloud Architecture</h3>
-                    <div class="project-client">Unicredit | 2023</div>
-                    <p>Delivered multi-cloud anti-money laundering platform with HA and DR, ensuring regulatory compliance...</p>
+                <div class="flex-item">
+                    <h3>Recent Professional Development:</h3>
+                    <ul>
+                        <li><strong>Red Hat OpenShift Administration II</strong> (2022)</li>
+                        <li><strong>Cloud Academy Learning Paths</strong> (2020-2022)</li>
+                        <li><strong>SAS Viya Architecture & Deployment</strong> (2018)</li>
+                        <li><strong>ElasticSearch Developer Course</strong> (2017)</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="education">
-            <h2>Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">July 1989</div>
-                    <div class="timeline-title">Diploma, IT Technical Institute "L. Trafelli"</div>
-                </div>
+        <hr>
+
+        <section class="section">
+            <h2>🌐 LANGUAGES</h2>
+            <ul>
+                <li><strong>Italian:</strong> Native</li>
+                <li><strong>English:</strong> Professional Proficiency</li>
+                <li><strong>French:</strong> Conversational</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section class="section">
+            <h2>💡 PERSONAL INTERESTS</h2>
+            <div class="technical-expertise">
+                <p><strong>Technology:</strong> Open-source contributions, emerging tech research, programming side projects</p>
+                <p><strong>Wellness:</strong> Fitness, healthy cooking, gardening</p>
+                <p><strong>Sports:</strong> Soccer (playing and watching), outdoor activities</p>
+                <p><strong>Learning:</strong> Technical books, industry publications, continuous skill development</p>
             </div>
         </section>
 
-        <section class="section" id="languages">
-            <h2>Languages</h2>
-            <div class="skills-container">
-                <div class="skill">Italian (Native)</div>
-                <div class="skill">English (Fluent)</div>
-                <div class="skill">French (Basic)</div>
-            </div>
-        </section>
+        <footer class="footer">
+            <p><em>"Driving digital transformation through innovative cloud architectures and strategic technology leadership"</em></p>
+        </footer>
     </div>
-
-    <!-- Modal for project details -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modalTitle">Project Title</h2>
-            <div id="modalContent">
-                <p>Project details will be shown here.</p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Andrea Bonadonna. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // Tab functionality for technical skills
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Remove active class from all tabs and contents
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                this.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(`${tabId}-content`).classList.add('active');
-            });
-        });
-
-        // Modal functionality for projects
-        const modal = document.getElementById('projectModal');
-        const closeBtn = document.querySelector('.close-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        // Project details data
-        const projectDetails = {
-            alloy: {
-                title: "OCI Alloy Region Implementation",
-                client: "PSN | 2025",
-                content: `
-                    <p><strong>Challenge:</strong> Needed to architect national OCI Alloy regions with strict compliance requirements for government services.</p>
-                    <p><strong>Solution:</strong> Designed and implemented complete OCI Alloy infrastructure including:</p>
-                    <ul>
-                        <li>Multi-region networking architecture with redundant connections</li>
-                        <li>Disaster recovery solution with RPO/RTO meeting SLAs</li>
-                        <li>Integration with external national identity services</li>
-                        <li>CIS-compliant security framework implementation</li>
-                    </ul>
-                    <p><strong>Results:</strong> Improved deployment efficiency by 40% while meeting all regulatory requirements. System achieved 99.99% availability in production.</p>
-                `
-            },
-            foundation: {
-                title: "Cloud-Native Foundation",
-                client: "Noovle | 2024",
-                content: `
-                    <p><strong>Challenge:</strong> Establish cloud foundation for large enterprise transitioning to OCI.</p>
-                    <p><strong>Solution:</strong> Comprehensive cloud foundation including:</p>
-                    <ul>
-                        <li>OCI Landing Zone design with compartment structure</li>
-                        <li>Automated Exadata provisioning workflows</li>
-                        <li>Cost tracking and optimization dashboards</li>
-                        <li>Security compliance automation</li>
-                    </ul>
-                    <p><strong>Results:</strong> Enabled client to onboard 50+ applications within first 3 months with standardized, secure patterns.</p>
-                `
-            },
-            migration: {
-                title: "OCI Landing Zone Migration",
-                client: "Reale Mutua | 2023",
-                content: `
-                    <p><strong>Challenge:</strong> Migrate legacy insurance systems to OCI while maintaining hybrid connectivity with Azure.</p>
-                    <p><strong>Solution:</strong> Developed and executed migration strategy featuring:</p>
-                    <ul>
-                        <li>Lift & Shift approach aligned with CIS benchmarks</li>
-                        <li>Hybrid networking architecture with Azure</li>
-                        <li>Automated testing and validation pipelines</li>
-                        <li>Zero-downtime migration approach</li>
-                    </ul>
-                    <p><strong>Results:</strong> Successful migration of 100+ workloads with no business disruption. Achieved 60% reduction in infrastructure costs.</p>
-                `
-            },
-            aml: {
-                title: "AML Cloud Architecture",
-                client: "Unicredit | 2023",
-                content: `
-                    <p><strong>Challenge:</strong> Deliver compliant anti-money laundering platform across multiple clouds.</p>
-                    <p><strong>Solution:</strong> Multi-cloud architecture with:</p>
-                    <ul>
-                        <li>High availability design across regions</li>
-                        <li>Disaster recovery meeting financial regulations</li>
-                        <li>Data residency compliance controls</li>
-                        <li>Real-time transaction monitoring</li>
-                    </ul>
-                    <p><strong>Results:</strong> Platform processed 5M+ transactions daily while meeting all regulatory requirements. Reduced false positives by 30%.</p>
-                `
-            }
-        };
-
-        projectCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const projectId = this.getAttribute('data-project');
-                const project = projectDetails[projectId];
-                
-                document.getElementById('modalTitle').textContent = project.title;
-                document.getElementById('modalContent').innerHTML = `
-                    <div class="project-client">${project.client}</div>
-                    ${project.content}
-                `;
-                
-                modal.style.display = 'block';
-            });
-        });
-        
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-        });
-        
-        window.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        // Profile image click to enlarge
-        document.getElementById('profileImg').addEventListener('click', function() {
-            const modalContent = `
-                <div style="text-align: center;">
-                    <img src="${this.src}" alt="Andrea Bonadonna" style="max-width: 100%; max-height: 80vh;">
-                    <p style="margin-top: 1rem;">Andrea Bonadonna<br>Senior Cloud Solutions Architect</p>
-                </div>
-            `;
-            
-            document.getElementById('modalTitle').textContent = 'Profile Photo';
-            document.getElementById('modalContent').innerHTML = modalContent;
-            modal.style.display = 'block';
-        });
-    </script>
+</body>
+</html>
 </body>
 </html>
