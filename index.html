@@ -1,750 +1,805 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrea Bonadonna — Cloud & Agentic AI Architect</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Bonadonna – Cloud Architect & Agentic AI Expert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --navy:       #0b1a2e;
-      --navy-mid:   #112240;
-      --navy-light: #1c3558;
-      --gold:       #c9a84c;
-      --gold-light: #e8c87a;
-      --white:      #f0efe9;
-      --muted:      #8899aa;
-      --border:     rgba(201,168,76,0.2);
-      --card-bg:    rgba(17,34,64,0.6);
+  :root {
+    --navy:    #0D1117;
+    --deep:    #161B22;
+    --mid:     #1E2530;
+    --gold:    #C9A84C;
+    --gold-lt: #E2C46E;
+    --silver:  #A8B4C0;
+    --white:   #F0EEE8;
+    --text:    #CBD5E1;
+    --muted:   #64748B;
+    --border:  rgba(201,168,76,0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 48px;
+    background: rgba(13,17,23,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--gold); text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: var(--silver); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+
+  .hero-image-col {
+    position: relative;
+    background: var(--deep);
+  }
+  .hero-image-col img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+    filter: grayscale(15%) contrast(1.05);
+  }
+  .hero-image-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 55%, var(--navy) 100%),
+                linear-gradient(to bottom, rgba(13,17,23,0.3) 0%, transparent 40%);
+  }
+
+  .hero-content-col {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 64px 80px 56px;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 36px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5.5vw, 72px);
+    font-weight: 300; line-height: 1.08;
+    color: var(--white); letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .hero-name span { font-weight: 700; }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 300; font-style: italic;
+    color: var(--gold-lt); margin-bottom: 32px;
+  }
+
+  .hero-summary {
+    color: var(--silver); font-size: 14.5px; line-height: 1.8;
+    max-width: 480px; margin-bottom: 40px;
+    border-left: 2px solid var(--border);
+    padding-left: 20px;
+  }
+
+  .hero-stats {
+    display: flex; gap: 32px; margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .stat-item { }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px; font-weight: 600; line-height: 1;
+    color: var(--gold);
+  }
+  .stat-label {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-top: 4px;
+  }
+
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 28px; font-size: 13px; letter-spacing: 0.08em;
+    text-transform: uppercase; text-decoration: none;
+    border: 1px solid; cursor: pointer; transition: all 0.25s;
+    font-family: 'Inter', sans-serif;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    border-color: var(--gold); font-weight: 600;
+  }
+  .btn-primary:hover { background: var(--gold-lt); border-color: var(--gold-lt); }
+  .btn-ghost {
+    background: transparent; color: var(--silver);
+    border-color: rgba(168,180,192,0.3);
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── SECTION WRAPPER ── */
+  section { padding: 100px 0; }
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 48px; }
+
+  .section-label {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; max-width: 60px; height: 1px;
+    background: var(--gold); opacity: 0.5;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 300; color: var(--white); line-height: 1.15;
+    margin-bottom: 56px;
+  }
+  .section-title em { font-style: italic; color: var(--gold-lt); }
+
+  /* ── COMPETENCIES ── */
+  #competencies { background: var(--deep); }
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+  }
+  .comp-card {
+    padding: 32px 28px;
+    border: 1px solid transparent;
+    transition: border-color 0.25s, background 0.25s;
+    position: relative;
+  }
+  .comp-card:hover { border-color: var(--border); background: var(--mid); }
+  .comp-icon {
+    font-size: 28px; margin-bottom: 16px; display: block;
+  }
+  .comp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 600; color: var(--white);
+    margin-bottom: 10px;
+  }
+  .comp-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+  /* ── EXPERIENCE TIMELINE ── */
+  #experience { background: var(--navy); }
+  .timeline { position: relative; padding-left: 40px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 1px; background: linear-gradient(to bottom, var(--gold) 0%, var(--border) 100%);
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 56px;
+    opacity: 0; transform: translateX(-16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-dot {
+    position: absolute; left: -47px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 2px solid var(--gold); background: var(--navy);
+    transition: background 0.25s;
+  }
+  .timeline-item:hover .timeline-dot { background: var(--gold); }
+  .timeline-period {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 600; color: var(--white);
+    margin-bottom: 4px;
+  }
+  .timeline-company {
+    font-size: 13px; color: var(--silver); margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .timeline-bullets { list-style: none; }
+  .timeline-bullets li {
+    font-size: 13.5px; color: var(--muted); line-height: 1.8;
+    padding: 4px 0 4px 18px; position: relative;
+  }
+  .timeline-bullets li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--gold); font-size: 12px;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--deep); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .project-card {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    padding: 32px 28px;
+    transition: border-color 0.25s, transform 0.25s;
+    cursor: default;
+  }
+  .project-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .project-tag {
+    display: inline-block; margin-bottom: 16px;
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--gold);
+    padding: 3px 10px; border-radius: 2px;
+  }
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px; font-weight: 600; color: var(--white);
+    margin-bottom: 12px; line-height: 1.3;
+  }
+  .project-desc { font-size: 13.5px; color: var(--muted); line-height: 1.75; }
+  .project-tech {
+    margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .tech-pill {
+    font-size: 11px; color: var(--silver); background: rgba(168,180,192,0.08);
+    border: 1px solid rgba(168,180,192,0.15);
+    padding: 3px 10px; border-radius: 2px;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--navy); }
+  .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .skills-group-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600; color: var(--white);
+    margin-bottom: 24px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-row { margin-bottom: 16px; }
+  .skill-name {
+    display: flex; justify-content: space-between;
+    font-size: 13px; color: var(--silver); margin-bottom: 6px;
+  }
+  .skill-bar {
+    height: 2px; background: rgba(168,180,192,0.1); border-radius: 2px; overflow: hidden;
+  }
+  .skill-fill {
+    height: 100%; background: linear-gradient(to right, var(--gold), var(--gold-lt));
+    border-radius: 2px; width: 0%;
+    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    font-size: 12px; color: var(--silver);
+    background: var(--mid); border: 1px solid var(--border);
+    padding: 5px 12px; border-radius: 2px;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  #certs { background: var(--deep); }
+  .certs-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .cert-card {
+    background: var(--mid); border: 1px solid var(--border);
+    padding: 24px 20px; display: flex; gap: 16px; align-items: flex-start;
+    transition: border-color 0.25s;
+  }
+  .cert-card:hover { border-color: var(--gold); }
+  .cert-icon { font-size: 32px; flex-shrink: 0; }
+  .cert-name { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 4px; }
+  .cert-date { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--navy);
+    text-align: center; padding: 120px 0;
+  }
+  .contact-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 300; font-style: italic;
+    color: var(--silver); max-width: 680px; margin: 0 auto 48px;
+    line-height: 1.4;
+  }
+  .contact-tagline strong { color: var(--white); font-style: normal; font-weight: 600; }
+  .contact-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--silver); text-decoration: none; font-size: 14px;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep); border-top: 1px solid var(--border);
+    padding: 32px 48px; display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  footer span { font-size: 12px; color: var(--muted); }
+
+  /* ── DIVIDER ── */
+  .gold-line {
+    width: 60px; height: 1px; background: var(--gold); margin-bottom: 40px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-image-col { height: 55vw; }
+    .hero-image-overlay {
+      background: linear-gradient(to bottom, transparent 40%, var(--navy) 100%);
     }
+    .hero-content-col { padding: 48px 32px 64px; }
+    .skills-layout { grid-template-columns: 1fr; gap: 40px; }
+    nav { padding: 16px 24px; }
+    .container { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+  }
 
-    html { scroll-behavior: smooth; }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    footer { flex-direction: column; text-align: center; }
+  }
 
-    body {
-      background-color: var(--navy);
-      color: var(--white);
-      font-family: 'Sora', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    /* ── BACKGROUND TEXTURE ── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 10% 0%, rgba(201,168,76,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 70% at 90% 100%, rgba(28,53,88,0.8) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    /* ── LAYOUT ── */
-    .page { position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: 0 24px 80px; }
-
-    /* ── HEADER / HERO ── */
-    header {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: end;
-      gap: 40px;
-      padding: 80px 0 60px;
-      border-bottom: 1px solid var(--border);
-      animation: fadeUp 0.9s ease both;
-    }
-
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--white);
-    }
-
-    .hero-name span {
-      display: block;
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .hero-title {
-      font-family: 'Sora', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 14px;
-    }
-
-    .hero-contacts {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: flex-end;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .hero-contacts a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .hero-contacts a:hover { color: var(--gold); }
-
-    .hero-contacts .contact-row {
-      display: flex; align-items: center; gap: 8px;
-    }
-    .hero-contacts .dot {
-      width: 4px; height: 4px; border-radius: 50%;
-      background: var(--gold); opacity: 0.5;
-    }
-
-    /* ── PROFILE BAND ── */
-    .profile-band {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 32px 40px;
-      margin: 48px 0;
-      font-size: 1rem;
-      color: #b8c8d8;
-      line-height: 1.8;
-      position: relative;
-      animation: fadeUp 0.9s 0.15s ease both;
-    }
-
-    .profile-band::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, var(--gold), transparent);
-      border-radius: 4px 0 0 4px;
-    }
-
-    /* ── MAIN GRID ── */
-    .main-grid {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 56px;
-      align-items: start;
-    }
-
-    /* ── SECTION ── */
-    section { margin-bottom: 64px; animation: fadeUp 0.9s 0.2s ease both; }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ── EXPERIENCE ITEM ── */
-    .exp-item {
-      padding: 28px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .exp-item:last-child { border-bottom: none; }
-
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .exp-role {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.2;
-    }
-
-    .exp-company {
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 4px;
-    }
-
-    .exp-date {
-      font-size: 0.75rem;
-      color: var(--muted);
-      white-space: nowrap;
-      margin-top: 4px;
-      border: 1px solid var(--border);
-      padding: 3px 10px;
-      border-radius: 20px;
-      flex-shrink: 0;
-    }
-
-    .exp-bullets {
-      margin-top: 16px;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .exp-bullets li {
-      font-size: 0.875rem;
-      color: #99aabb;
-      padding-left: 18px;
-      position: relative;
-      line-height: 1.65;
-    }
-
-    .exp-bullets li::before {
-      content: '–';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      opacity: 0.7;
-    }
-
-    /* ── PROJECTS ── */
-    .project-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 22px 26px;
-      transition: border-color 0.25s, background 0.25s;
-    }
-
-    .project-card:hover {
-      border-color: rgba(201,168,76,0.5);
-      background: rgba(17,34,64,0.9);
-    }
-
-    .project-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-
-    .project-desc {
-      font-size: 0.82rem;
-      color: #8899aa;
-      line-height: 1.7;
-    }
-
-    .project-tags {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tag {
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 2px 9px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      color: var(--gold);
-    }
-
-    /* ── SIDEBAR ── */
-    .sidebar { position: sticky; top: 40px; }
-
-    .sidebar section { margin-bottom: 48px; }
-
-    /* ── SKILLS ── */
-    .skill-group { margin-bottom: 22px; }
-
-    .skill-category {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
-    }
-
-    .skill-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .pill {
-      font-size: 0.72rem;
-      padding: 4px 11px;
-      border-radius: 3px;
-      background: rgba(201,168,76,0.08);
-      border: 1px solid rgba(201,168,76,0.18);
-      color: #ccd8e8;
-      transition: background 0.2s, color 0.2s;
-    }
-    .pill:hover {
-      background: rgba(201,168,76,0.18);
-      color: var(--white);
-    }
-
-    /* ── CERTS ── */
-    .cert-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-
-    .cert-item {
-      padding: 14px 16px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-size: 0.78rem;
-      color: #99aabb;
-      line-height: 1.5;
-    }
-
-    .cert-item strong {
-      display: block;
-      color: var(--white);
-      font-weight: 500;
-      font-size: 0.8rem;
-      margin-bottom: 2px;
-    }
-
-    .cert-year {
-      font-size: 0.65rem;
-      color: var(--gold);
-      font-weight: 500;
-      letter-spacing: 0.1em;
-    }
-
-    /* ── LANGUAGES / INFO ── */
-    .info-list { display: flex; flex-direction: column; gap: 10px; }
-
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.82rem;
-      color: #8899aa;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .info-row:last-child { border-bottom: none; }
-
-    .info-row span:first-child { color: var(--white); font-weight: 400; }
-
-    /* ── EDUCATION ── */
-    .edu-item {
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .edu-item:last-child { border-bottom: none; }
-
-    .edu-degree {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      color: var(--white);
-      font-weight: 600;
-    }
-    .edu-school {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 3px;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 40px 0 20px;
-      font-size: 0.72rem;
-      color: rgba(136,153,170,0.5);
-      letter-spacing: 0.1em;
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 860px) {
-      header { grid-template-columns: 1fr; }
-      .hero-contacts { align-items: flex-start; }
-      .main-grid { grid-template-columns: 1fr; }
-      .sidebar { position: static; }
-    }
-
-    @media (max-width: 540px) {
-      .profile-band { padding: 22px 20px; }
-      .hero-name { font-size: 2.6rem; }
-    }
-  </style>
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+    .timeline-item { opacity: 1 !important; transform: none !important; }
+  }
+</style>
 </head>
 <body>
-<div class="page">
 
-  <!-- ── HEADER ── -->
-  <header>
-    <div>
-      <h1 class="hero-name">Andrea<span>Bonadonna</span></h1>
-      <p class="hero-title">Cloud &amp; Agentic AI Architect &nbsp;·&nbsp; 20+ Years of Experience</p>
-    </div>
-    <div class="hero-contacts">
-      <div class="contact-row">
-        <span class="dot"></span>
-        <a href="mailto:bonadonna.andrea@gmail.com">bonadonna.andrea@gmail.com</a>
-      </div>
-      <div class="contact-row">
-        <span class="dot"></span>
-        <a href="tel:+393357415299">+39 335 741 5299</a>
-      </div>
-      <div class="contact-row">
-        <span class="dot"></span>
-        <a href="https://www.linkedin.com/in/andrea-bonadonna-907a211/" target="_blank">LinkedIn Profile</a>
-      </div>
-      <div class="contact-row">
-        <span class="dot"></span>
-        <span>Anzio (Roma), Italy</span>
-      </div>
-    </div>
-  </header>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">AB</a>
+  <ul class="nav-links">
+    <li><a href="#competencies">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certs">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- ── PROFILE ── -->
-  <div class="profile-band">
-    Accomplished Cloud Architect and Technology Leader with over 20 years of experience. Specialized in designing enterprise-grade solutions and Agentic AI architectures for Global Fortune 500 clients. Proven track record in orchestrating autonomous AI agents and RAG pipelines on Google Cloud Platform, while maintaining deep expertise in multi-cloud strategy (OCI, AWS, Azure), Kubernetes, and IaC. Strategic leader focused on bridging the gap between Generative AI innovation and robust, scalable cloud infrastructure.
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-image-col">
+    <img src="professional_profile_2.PNG" alt="Andrea Bonadonna">
+    <div class="hero-image-overlay"></div>
   </div>
+  <div class="hero-content-col">
+    <div class="hero-eyebrow">Cloud & AI Architecture</div>
+    <h1 class="hero-name">Andrea<br><span>Bonadonna</span></h1>
+    <p class="hero-title">Senior Cloud Solutions Architect<br>& Agentic AI Expert</p>
+    <p class="hero-summary">
+      25+ years bridging complex technology with strategic business value. 
+      From Fortune 500 cloud transformations to enterprise Agentic AI platforms — 
+      I help organisations turn architectural decisions into competitive advantage.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">25+</div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Cloud platforms</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="#experience" class="btn btn-ghost">View experience ↓</a>
+    </div>
+  </div>
+</section>
 
-  <!-- ── MAIN GRID ── -->
-  <div class="main-grid">
+<!-- COMPETENCIES -->
+<section id="competencies">
+  <div class="container">
+    <div class="section-label">Core Expertise</div>
+    <h2 class="section-title">What I bring<br>to the <em>table</em></h2>
+    <div class="comp-grid">
+      <div class="comp-card">
+        <span class="comp-icon">🤖</span>
+        <div class="comp-title">Agentic AI Architecture</div>
+        <div class="comp-desc">Multi-agent orchestration, advanced RAG pipelines, semantic memory, guardrails, and LLM safety evaluation. From concept to enterprise-grade deployment.</div>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">☁️</span>
+        <div class="comp-title">Multi-Cloud Design</div>
+        <div class="comp-desc">Full-stack architecture across GCP, OCI, AWS, and Azure. Landing zones, networking, DR, and security — designed to DORA, CIS, and Zero-Trust standards.</div>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">⚙️</span>
+        <div class="comp-title">Kubernetes & Containers</div>
+        <div class="comp-desc">GKE, OKE, EKS, and OpenShift. Cloud-native application lifecycle, IaC automation with Terraform and Ansible, and GitOps pipelines at enterprise scale.</div>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">💼</span>
+        <div class="comp-title">Pre-Sales Leadership</div>
+        <div class="comp-desc">Technical storytelling that wins deals. RFP/RFI response, executive presentations, and solutions evangelisation across Telco, Banking, and Public Sector.</div>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">🏛️</span>
+        <div class="comp-title">Enterprise Strategy</div>
+        <div class="comp-desc">TOGAF-grounded architecture strategies and cloud roadmaps for C-level stakeholders. Translating complex requirements into actionable transformation programmes.</div>
+      </div>
+      <div class="comp-card">
+        <span class="comp-icon">📊</span>
+        <div class="comp-title">Observability & Platform Engineering</div>
+        <div class="comp-desc">Splunk, Prometheus, Grafana, ELK, Thanos. From high-volume async ingestion to real-time alerting and autoscaling driven by live metrics.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ═══ LEFT COLUMN ═══ -->
-    <main>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">25 years of<br><em>progressive impact</em></h2>
+    <div class="timeline">
 
-      <!-- EXPERIENCE -->
-      <section>
-        <div class="section-label">Professional Experience</div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Business Architecture Manager</div>
-              <div class="exp-company">Accenture</div>
-            </div>
-            <div class="exp-date">Mar 2024 – Present</div>
-          </div>
-          <ul class="exp-bullets">
-            <li>Spearheaded the architectural design of a multi-segment (Enterprise, Business, Consumer) AI chatbot ecosystem for a global Telecommunications provider.</li>
-            <li>Led business and technical architecture for major Oracle Cloud Infrastructure (OCI) engagements within Accenture's CloudFirst division.</li>
-            <li>Developed integrated enterprise architecture strategies using industry-standard frameworks to guide multi-million dollar cloud transformation programs.</li>
-            <li>Advised senior management on architectural decisions and methodology, influencing the strategic direction of client projects.</li>
-          </ul>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Technology Architect</div>
-              <div class="exp-company">Oracle</div>
-            </div>
-            <div class="exp-date">Apr 2022 – Mar 2024</div>
-          </div>
-          <ul class="exp-bullets">
-            <li>Drove technical pre-sales and solutions evangelization, presenting tailored architectural patterns and multi-cloud solutions to clients and key SI partners.</li>
-            <li>Architected and delivered secure, compliant cloud landing zones for enterprise clients (Reale Mutua, TIM, Qatar Gov't) based on CIS benchmarks.</li>
-            <li>Engineered Infrastructure as Code using Terraform and Ansible, cutting manual setup time by over 70%.</li>
-            <li>Directed the containerization and deployment of cloud-native applications on Oracle Kubernetes Engine (OKE).</li>
-          </ul>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Principal Technical Architect</div>
-              <div class="exp-company">SAS Institute — Modernization &amp; Cloud Practice</div>
-            </div>
-            <div class="exp-date">Jan 2002 – Apr 2021</div>
-          </div>
-          <ul class="exp-bullets">
-            <li>Designed cloud-native and hybrid analytics platforms for major clients (ENEL, Poste Italiane), enabling migration from legacy on-premise systems.</li>
-            <li>Led the containerization of ENEL's Enterprise Analytics Platform on a Kubernetes cluster in AWS with elastic scalability.</li>
-            <li>Automated SAS infrastructure consolidation for Poste Italiane using Ansible and VMware.</li>
-            <li>Pioneered an "Analytics at the Edge" solution for ENEL Greenpower, deploying predictive models on Cisco IR-829 routers for real-time failure prevention in hydroelectric plants.</li>
-          </ul>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Developer &amp; Various Roles</div>
-              <div class="exp-company">Early Career</div>
-            </div>
-            <div class="exp-date">Nov 1992 – Feb 2002</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section>
-        <div class="section-label">Key Projects &amp; Achievements</div>
-        <div class="project-grid">
-
-          <div class="project-card">
-            <div class="project-name">Global Telco Agentic AI Bot</div>
-            <div class="project-desc">Built GCP-based infrastructure for an international Telco integrating Vertex AI and Dialogflow CX to automate complex customer support workflows. Architected RAG solutions using Vertex AI Datastores and deployed the AI middleware on Google Kubernetes Engine with Application Load Balancers for high availability. Leveraged BigQuery and Dataflow for real-time agent performance monitoring.</div>
-            <div class="project-tags">
-              <span class="tag">GCP</span><span class="tag">Vertex AI</span><span class="tag">Dialogflow CX</span>
-              <span class="tag">RAG</span><span class="tag">GKE</span><span class="tag">BigQuery</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-name">SISAL Scalable Observability Platform</div>
-            <div class="project-desc">Architected a high-volume observability and monitoring platform for the Betting/Gaming industry. Engineered an asynchronous data ingestion pipeline using Kafka, feeding metrics into Splunk and enabling automatic microservice scaling driven by real-time performance data.</div>
-            <div class="project-tags">
-              <span class="tag">Kafka</span><span class="tag">Splunk</span><span class="tag">Microservices</span>
-              <span class="tag">Observability</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-name">Qatar Ministry of IT — Cloud Foundation</div>
-            <div class="project-desc">Led the design and implementation of a secure, CIS-benchmarked OCI Landing Zone. Developed Terraform scripts for automated provisioning and architected DNS and security policies enforcing a zero-trust model.</div>
-            <div class="project-tags">
-              <span class="tag">OCI</span><span class="tag">Terraform</span><span class="tag">Zero-Trust</span><span class="tag">CIS</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-name">Italy Government Private Cloud (Polo Strategico Nazionale)</div>
-            <div class="project-desc">Architected the Landing Zone service and environment tenancies for Italian public administration, designed DR processes and Terraform automation for a sovereign cloud environment.</div>
-            <div class="project-tags">
-              <span class="tag">OCI</span><span class="tag">Terraform</span><span class="tag">Landing Zone</span><span class="tag">DR</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-name">UniCredit Group — Anti-Money Laundering</div>
-            <div class="project-desc">Implemented a cloud-based AML solution in OCI including architecture design, disaster recovery strategy, and multi-cloud connectivity for one of Europe's largest banking groups.</div>
-            <div class="project-tags">
-              <span class="tag">OCI</span><span class="tag">AML</span><span class="tag">Multi-Cloud</span><span class="tag">DR</span>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-name">ENEL Analytics Platform Modernization</div>
-            <div class="project-desc">Migrated the enterprise analytics platform to a containerized architecture on AWS Kubernetes, implementing elastic scaling and optimizing infrastructure costs at scale.</div>
-            <div class="project-tags">
-              <span class="tag">AWS</span><span class="tag">Kubernetes</span><span class="tag">EKS</span><span class="tag">Elastic Scaling</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-    </main>
-
-    <!-- ═══ RIGHT SIDEBAR ═══ -->
-    <aside class="sidebar">
-
-      <!-- SKILLS -->
-      <section>
-        <div class="section-label">Technical Skills</div>
-
-        <div class="skill-group">
-          <div class="skill-category">AI &amp; Machine Learning</div>
-          <div class="skill-pills">
-            <span class="pill">Agentic AI</span>
-            <span class="pill">Vertex AI</span>
-            <span class="pill">Dialogflow CX</span>
-            <span class="pill">LLM Orchestration</span>
-            <span class="pill">RAG</span>
-            <span class="pill">Prompt Engineering</span>
-            <span class="pill">Function Calling</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-category">Cloud Platforms</div>
-          <div class="skill-pills">
-            <span class="pill">OCI</span>
-            <span class="pill">AWS</span>
-            <span class="pill">GCP</span>
-            <span class="pill">Azure</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-category">Containerization &amp; Orchestration</div>
-          <div class="skill-pills">
-            <span class="pill">Kubernetes (CKA)</span>
-            <span class="pill">Docker</span>
-            <span class="pill">OKE</span>
-            <span class="pill">EKS</span>
-            <span class="pill">GKE</span>
-            <span class="pill">OpenShift</span>
-            <span class="pill">Helm</span>
-            <span class="pill">Kustomize</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-category">Infrastructure as Code</div>
-          <div class="skill-pills">
-            <span class="pill">Terraform</span>
-            <span class="pill">Ansible</span>
-            <span class="pill">CloudFormation</span>
-            <span class="pill">Vagrant</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-category">Monitoring &amp; Observability</div>
-          <div class="skill-pills">
-            <span class="pill">Splunk</span>
-            <span class="pill">Prometheus</span>
-            <span class="pill">Grafana</span>
-            <span class="pill">ELK Stack</span>
-            <span class="pill">Thanos</span>
-            <span class="pill">Loki</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-category">CI/CD &amp; DevOps</div>
-          <div class="skill-pills">
-            <span class="pill">Jenkins</span>
-            <span class="pill">GitLab</span>
-            <span class="pill">ArgoCD</span>
-            <span class="pill">Bitbucket</span>
-            <span class="pill">Bamboo</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-category">Programming</div>
-          <div class="skill-pills">
-            <span class="pill">Python</span>
-            <span class="pill">Go</span>
-            <span class="pill">Java</span>
-            <span class="pill">Shell</span>
-            <span class="pill">SQL</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-category">Security</div>
-          <div class="skill-pills">
-            <span class="pill">Zero-Trust</span>
-            <span class="pill">CIS Benchmarks</span>
-            <span class="pill">IAM</span>
-            <span class="pill">SAML</span>
-            <span class="pill">LDAP</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- CERTIFICATIONS -->
-      <section>
-        <div class="section-label">Certifications</div>
-        <ul class="cert-list">
-          <li class="cert-item">
-            <strong>AWS Certified Solutions Architect - Associate SAA-C03</strong>
-            <span class="cert-year">Apr 2026</span>
-          </li>
-          <li class="cert-item">
-            <strong>Google Certified Professional Cloud Architect</strong>
-            <span class="cert-year">Jul 2025</span>
-          </li>
-          <li class="cert-item">
-            <strong>OCI 2024 AI Certified Professional</strong>
-            <span class="cert-year">Jan 2025</span>
-          </li>
-          <li class="cert-item">
-            <strong>OCI 2025 Multicloud Architect Professional</strong>
-            <span class="cert-year">Dec 2024</span>
-          </li>
-          <li class="cert-item">
-            <strong>OCI 2023 Certified Architect Professional</strong>
-            <span class="cert-year">Feb 2024</span>
-          </li>
-          <li class="cert-item">
-            <strong>OCI 2022 Certified Foundation Associate</strong>
-            <span class="cert-year">Oct 2022</span>
-          </li>
-          <li class="cert-item">
-            <strong>SAS Certified Platform Administrator</strong>
-            <span class="cert-year">Jun 2014</span>
-          </li>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Mar 2024 – Present</div>
+        <div class="timeline-role">Business Architecture Manager</div>
+        <div class="timeline-company">Accenture · Technology Strategy & Transformation, Rome</div>
+        <ul class="timeline-bullets">
+          <li>Designed enterprise-grade Multi-Agent AI chatbot ecosystem for TIM (Italy's tier-1 Telco), contributing to a multi-million euro GCP cloud deal</li>
+          <li>Lead OCI engagement architecture within the Technology Strategy practice; translate client requirements into winning proposals and actionable roadmaps</li>
+          <li>Advise C-level executives on cloud transformation strategy; developed TOGAF-grounded architectures for Financial Services and Public Administration</li>
         </ul>
-      </section>
+      </div>
 
-      <!-- EDUCATION -->
-      <section>
-        <div class="section-label">Education</div>
-        <div class="edu-item">
-          <div class="edu-degree">Secondary School Diploma in IT</div>
-          <div class="edu-school">State Industrial Technical Institute "Luigi Trafelli"</div>
-        </div>
-      </section>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Apr 2022 – Mar 2024</div>
+        <div class="timeline-role">Technology Architect · Pre-Sales & Solutions Architecture</div>
+        <div class="timeline-company">Oracle · OCI / Multi-Cloud, Rome</div>
+        <ul class="timeline-bullets">
+          <li>Drove pre-sales for enterprise clients including Reale Mutua, Banca IFIS, and the Qatar Government — CIS-benchmarked OCI Landing Zones for all</li>
+          <li>Engineered Terraform + Ansible IaC frameworks, cutting manual environment provisioning time by over 70%</li>
+          <li>Architected multi-cloud networking and DORA-compliant DR strategies for mission-critical banking workloads across OCI, AWS, and Azure</li>
+        </ul>
+      </div>
 
-      <!-- LANGUAGES -->
-      <section>
-        <div class="section-label">Languages</div>
-        <div class="info-list">
-          <div class="info-row"><span>Italian</span><span>Native</span></div>
-          <div class="info-row"><span>English</span><span>Fluent</span></div>
-          <div class="info-row"><span>French</span><span>Basic</span></div>
-        </div>
-      </section>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Jan 2002 – Apr 2021</div>
+        <div class="timeline-role">Principal Technical Architect · Cloud & Modernisation Practice</div>
+        <div class="timeline-company">SAS Institute · 19 years, Rome</div>
+        <ul class="timeline-bullets">
+          <li>Containerised ENEL's Enterprise Analytics Platform on AWS EKS — elastic scalability with significant cost reduction at group level</li>
+          <li>Pioneered an Analytics at the Edge solution deploying predictive models on Cisco IoT routers for real-time failure prevention in ENEL hydroelectric plants — a globally recognised innovation</li>
+          <li>Automated SAS infrastructure consolidation for Poste Italiane with Ansible and VMware; led EMEA channel enablement for containerised analytics platforms</li>
+        </ul>
+      </div>
 
-      <!-- INTERESTS -->
-      <section>
-        <div class="section-label">Interests</div>
-        <div class="skill-pills">
-          <span class="pill">Open-Source</span>
-          <span class="pill">Emerging Tech</span>
-          <span class="pill">Side Projects</span>
-          <span class="pill">Fitness</span>
-          <span class="pill">Soccer</span>
-          <span class="pill">Healthy Cooking</span>
-          <span class="pill">Gardening</span>
-          <span class="pill">Technical Books</span>
-          <span class="pill">Outdoor Activities</span>
-        </div>
-      </section>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Nov 1992 – Feb 2002</div>
+        <div class="timeline-role">Developer & System Architect</div>
+        <div class="timeline-company">Various organisations</div>
+        <ul class="timeline-bullets">
+          <li>Designed and deployed enterprise Java, Python, and GoLang applications across backend and client-facing platforms</li>
+          <li>Built secure network and authentication systems in distributed environments; led agile delivery teams</li>
+        </ul>
+      </div>
 
-    </aside>
+    </div>
   </div>
+</section>
 
-  <footer>
-    &copy; 2026 Andrea Bonadonna &nbsp;·&nbsp; Cloud &amp; Agentic AI Architect &nbsp;·&nbsp; bonadonna.andrea@gmail.com
-  </footer>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Key Projects</div>
+    <h2 class="section-title">Selected <em>engagements</em></h2>
+    <div class="projects-grid">
 
-</div>
+      <div class="project-card">
+        <span class="project-tag">Telco · GCP</span>
+        <div class="project-title">Autonomous Network Operations & Customer Intent Engine</div>
+        <div class="project-desc">Multi-Agent AI system automating end-to-end network anomaly mitigation and billing reconciliation. Hierarchical agentic workflows with persistent semantic state and function calling to legacy OSS/BSS APIs — reducing MTTR by 42%.</div>
+        <div class="project-tech">
+          <span class="tech-pill">LangChain</span><span class="tech-pill">Advanced RAG</span><span class="tech-pill">LLM Guardrails</span><span class="tech-pill">GCP</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-tag">TIM · Vertex AI</span>
+        <div class="project-title">Agentic AI Virtual Assistant Platform</div>
+        <div class="project-desc">Multi-segment AI chatbot ecosystem for Italy's largest Telco using Vertex AI + Dialogflow CX with agentic features. RAG solutions on Vertex AI Datastores; real-time conversational analytics via BigQuery and Dataflow.</div>
+        <div class="project-tech">
+          <span class="tech-pill">Vertex AI</span><span class="tech-pill">GKE</span><span class="tech-pill">Dialogflow CX</span><span class="tech-pill">BigQuery</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-tag">Banking · Multi-Cloud</span>
+        <div class="project-title">Banca IFIS – Core Applications Migration</div>
+        <div class="project-desc">Cloud Landing Zone design and intra-CSP connectivity across OCI, AWS, and Azure. DORA-compliant data layer on Oracle Exadata; full DR architecture for mission-critical banking workloads.</div>
+        <div class="project-tech">
+          <span class="tech-pill">OCI</span><span class="tech-pill">AWS</span><span class="tech-pill">Azure</span><span class="tech-pill">Exadata</span><span class="tech-pill">DORA</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-tag">Gaming · OCI</span>
+        <div class="project-title">SISAL – High-Volume Observability Platform</div>
+        <div class="project-desc">Scalable observability platform for a major gaming operator using Kafka for async ingestion and Splunk for analytics. Automated microservice scaling driven by real-time Splunk metrics for peak-period resilience.</div>
+        <div class="project-tech">
+          <span class="tech-pill">Kafka</span><span class="tech-pill">Splunk</span><span class="tech-pill">OKE</span><span class="tech-pill">KEDA</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-tag">Government · OCI</span>
+        <div class="project-title">Qatar MCIT – Sovereign Cloud Foundation</div>
+        <div class="project-desc">CIS-benchmarked OCI Landing Zone with full Terraform automation for a sovereign government cloud environment. Zero-trust DNS architecture and security policies applied throughout.</div>
+        <div class="project-tech">
+          <span class="tech-pill">OCI</span><span class="tech-pill">Terraform</span><span class="tech-pill">CIS</span><span class="tech-pill">Zero-Trust</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-tag">Energy · AWS EKS</span>
+        <div class="project-title">ENEL – Enterprise Analytics Platform Modernisation</div>
+        <div class="project-desc">Migrated ENEL's group-wide enterprise analytics platform to a containerised architecture on AWS EKS. Pioneered an Analytics at the Edge innovation deploying predictive models on IoT devices for hydroelectric plants.</div>
+        <div class="project-tech">
+          <span class="tech-pill">AWS EKS</span><span class="tech-pill">Kubernetes</span><span class="tech-pill">Ansible</span><span class="tech-pill">Edge AI</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Technical Skills</div>
+    <h2 class="section-title">Depth across the<br><em>full stack</em></h2>
+    <div class="skills-layout">
+      <div>
+        <div class="skills-group-title">Cloud & AI Platforms</div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Google Cloud Platform (GCP)</span><span>95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Oracle Cloud Infrastructure (OCI)</span><span>95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Amazon Web Services (AWS)</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Microsoft Azure</span><span>78%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Vertex AI / Agentic AI</span><span>90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Kubernetes (GKE, OKE, EKS)</span><span>92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Terraform / Ansible</span><span>88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="skills-group-title">Programming & Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Go</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Shell</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Splunk SPL</span>
+          <span class="skill-tag">ArgoCD</span>
+          <span class="skill-tag">GitLab CI</span>
+          <span class="skill-tag">Helm</span>
+          <span class="skill-tag">Prometheus</span>
+          <span class="skill-tag">Grafana</span>
+          <span class="skill-tag">Thanos</span>
+          <span class="skill-tag">Kafka</span>
+          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">AutoGen</span>
+          <span class="skill-tag">CrewAI</span>
+          <span class="skill-tag">OpenSearch</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">Oracle DB</span>
+          <span class="skill-tag">TOGAF</span>
+          <span class="skill-tag">DORA</span>
+          <span class="skill-tag">CIS Benchmarks</span>
+          <span class="skill-tag">Zero-Trust</span>
+        </div>
+
+        <div class="skills-group-title" style="margin-top:40px;">Sectors</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Telecommunications</span>
+          <span class="skill-tag">Banking & Finance</span>
+          <span class="skill-tag">Energy & Utilities</span>
+          <span class="skill-tag">Gaming & Betting</span>
+          <span class="skill-tag">Public Administration</span>
+          <span class="skill-tag">Government / Sovereign Cloud</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="container">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certified across<br><em>every major cloud</em></h2>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <div>
+          <div class="cert-name">AWS Certified Solutions Architect – Associate</div>
+          <div class="cert-date">SAA-C03 · Apr 2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🌐</div>
+        <div>
+          <div class="cert-name">Google Certified Professional Cloud Architect</div>
+          <div class="cert-date">GCP · Jul 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🏛️</div>
+        <div>
+          <div class="cert-name">OCI 2025 Multicloud Architect Professional</div>
+          <div class="cert-date">Oracle · Dec 2024</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div>
+          <div class="cert-name">OCI 2024 AI Certified Professional</div>
+          <div class="cert-date">Oracle · Jan 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⚡</div>
+        <div>
+          <div class="cert-name">OCI 2023 Certified Architect Professional</div>
+          <div class="cert-date">Oracle · Feb 2024</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔰</div>
+        <div>
+          <div class="cert-name">OCI 2022 Certified Foundation Associate</div>
+          <div class="cert-date">Oracle · Oct 2022</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div>
+          <div class="cert-name">SAS Certified Platform Administrator</div>
+          <div class="cert-date">SAS Institute · Jun 2014</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="contact-tagline">
+      Building the next layer of your <strong>cloud or AI strategy?</strong><br>
+      Let's make the architecture work harder than the slide deck.
+    </p>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:bonadonna.andrea@gmail.com">
+        ✉ bonadonna.andrea@gmail.com
+      </a>
+      <a class="contact-link" href="tel:+393357415299">
+        📞 +39 335 741 5299
+      </a>
+      <a class="contact-link" href="https://linkedin.com/in/andrea-bonadonna-907a211" target="_blank">
+        🔗 LinkedIn Profile
+      </a>
+      <a class="contact-link" href="#">
+        📍 Anzio (RM), Italy
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Andrea Bonadonna</span>
+  <span>Cloud Architecture · Agentic AI · Pre-Sales Leadership</span>
+  <span>Rome, Italy</span>
+</footer>
+
+<script>
+  // Timeline scroll reveal
+  const items = document.querySelectorAll('.timeline-item');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 120);
+      }
+    });
+  }, { threshold: 0.15 });
+  items.forEach(el => io.observe(el));
+
+  // Skill bar animation
+  const bars = document.querySelectorAll('.skill-fill');
+  const barIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const target = e.target.dataset.width;
+        e.target.style.width = target + '%';
+        barIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(el => barIO.observe(el));
+
+  // Compact nav on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.padding = window.scrollY > 80 ? '12px 48px' : '18px 48px';
+  });
+</script>
+
 </body>
 </html>
